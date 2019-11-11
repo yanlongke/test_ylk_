@@ -2,7 +2,7 @@
  * @Author: 闫龙科
  * @Date: 2019-11-11 15:23:58
  * @LastEditors: 闫龙科
- * @LastEditTime: 2019-11-11 16:15:10
+ * @LastEditTime: 2019-11-11 20:17:26
  * @Description: 00
  */
 let koa=require("koa")
@@ -15,7 +15,6 @@ app.use(bodyparser())
 router.get("/api/list",async (ctx,next)=>{
     ctx.body=await query("select * from list")
 })
-
 router.post("/api/del",async (ctx)=>{
     let {id}=ctx.request.body
     console.log(id)

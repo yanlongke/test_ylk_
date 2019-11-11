@@ -2,22 +2,23 @@
  * @Author: 闫龙科
  * @Date: 2019-11-11 15:22:26
  * @LastEditors: 闫龙科
- * @LastEditTime: 2019-11-11 16:23:05
+ * @LastEditTime: 2019-11-11 19:38:45
  * @Description: 00
  -->
 <template>
   <div>
-      首页
+        <Table></Table>
   </div>
 </template>
 <script>
-import axios from "axios"
+
+import Table from "./table"
 export default {
   props:{
 
   },
   components:{
-
+    Table
   },
   data(){
     return {
@@ -31,9 +32,7 @@ export default {
 
   },
   created(){
-      axios.get("/api/list").then(res=>{
-        console.log(res.data.data)
-      })
+     
   },
   mounted(){
 
