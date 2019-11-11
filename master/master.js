@@ -2,7 +2,7 @@
  * @Author: 闫龙科
  * @Date: 2019-11-08 19:55:55
  * @LastEditors: 闫龙科
- * @LastEditTime: 2019-11-08 20:08:55
+ * @LastEditTime: 2019-11-09 09:57:15
  * @Description: 00
  */
 let childProcess=require("child_process")
@@ -33,7 +33,7 @@ for(let i=0;i<cpuLen;i++)
 }
 console.log(process.pid)
 process.on("exit",()=>{
-        for(let o in workers)
+        for(let i in workers)
         {
             workers[i].kill
         }
