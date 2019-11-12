@@ -2,7 +2,7 @@
  * @Author: 闫龙科
  * @Date: 2019-11-11 15:23:58
  * @LastEditors: 闫龙科
- * @LastEditTime: 2019-11-11 20:17:26
+ * @LastEditTime: 2019-11-12 13:57:56
  * @Description: 00
  */
 let koa=require("koa")
@@ -18,31 +18,40 @@ router.get("/api/list",async (ctx,next)=>{
 router.post("/api/del",async (ctx)=>{
     let {id}=ctx.request.body
     console.log(id)
-    let res=await query("select * from list where id=?",[id])
-    console.log(res.data.length)
-    if(res.data.length===0)
+    if(id)
     {
-        console.log(1)
-        ctx.body={
-            code:3,
-            msg:"不存在"
-        }
-    }
-    else{
-        flag=await query("DELETE FROM list WHERE id = ?;",[id])
-        if(flag)
+        let res=await query("select * from list where id=?",[id])
+        console.log(res.data.length)
+        if(res.data.length===0)
         {
+            console.log(1)
             ctx.body={
-                code:1,
-                msg:"删除成功"
-            }
-        }else{
-            ctx.body={
-                code:0,
-                mag:"删除失败"
+                code:3,
+                msg:"不存在"
             }
         }
+        else{
+            flag=await query("DELETE FROM list WHERE id = ?;",[id])
+            if(flag)
+            {
+                ctx.body={
+                    code:1,
+                    msg:"删除成功"
+                }
+            }else{
+                ctx.body={
+                    code:0,
+                    mag:"删除失败"
+                }
+            }
+        }
+    }else{
+        ctx.body={
+            code:2,
+            msg:"参数缺失"
+        }
     }
+   
     
 })
 
