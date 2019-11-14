@@ -2,7 +2,7 @@
  * @Author: 闫龙科
  * @Date: 2019-11-12 14:38:43
  * @LastEditors: 闫龙科
- * @LastEditTime: 2019-11-13 20:21:58
+ * @LastEditTime: 2019-11-14 08:44:28
  * @Description: 00
  */
 let koa = require('koa')
@@ -67,6 +67,8 @@ router.post('/api/add', async ctx => {//添加接口
   if (remark && type) {
     //判断参数是否存在
     let newdata = new Date() //定义创建时间
+
+    
     try {
       //insert into 表名 (字段1,字段2,字段3) values (?,?,?)
       //向数据库添加数据
